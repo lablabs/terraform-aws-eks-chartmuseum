@@ -18,7 +18,7 @@ variable "cluster_identity_oidc_issuer_arn" {
 
 variable "helm_chart_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "chartmuseum"
   description = "Helm chart name to be installed"
 }
 
@@ -30,7 +30,7 @@ variable "helm_chart_version" {
 
 variable "helm_release_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "chartmuseum"
   description = "Helm release name"
 }
 variable "helm_repo_url" {
@@ -47,20 +47,20 @@ variable "helm_create_namespace" {
 
 variable "namespace" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The K8s namespace in which the <$addon-name> service account has been created"
+  default     = "chartmuseum"
+  description = "The K8s namespace in which the chartmuseum service account has been created"
 }
 
 variable "settings" {
   type        = map(any)
   default     = {}
-  description = "Additional helm sets which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional helm sets which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/chartmuseum"
 }
 
 variable "values" {
   type        = string
   default     = ""
-  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/chartmuseum"
 }
 
 # ================ IRSA variables (optional) ================
@@ -83,11 +83,11 @@ variable "irsa_role_create" {
   description = "Whether to create IRSA role and annotate service account"
 }
 
-variable "irsa_policy_enabled" {
-  type        = bool
-  default     = true
-  description = "Whether to create opinionated policy to allow operations on specified zones in `policy_allowed_zone_ids`."
-}
+# variable "irsa_policy_enabled" {
+#   type        = bool
+#   default     = true
+#   description = "Whether to create opinionated policy to allow operations on specified zones in `policy_allowed_zone_ids`."
+# }
 
 variable "irsa_assume_role_enabled" {
   type        = bool
@@ -95,11 +95,11 @@ variable "irsa_assume_role_enabled" {
   description = "Whether IRSA is allowed to assume role defined by irsa_assume_role_arn."
 }
 
-variable "irsa_assume_role_arn" {
-  type        = string
-  default     = ""
-  description = "Assume role arn. Assume role must be enabled."
-}
+# variable "irsa_assume_role_arn" {
+#   type        = string
+#   default     = ""
+#   description = "Assume role arn. Assume role must be enabled."
+# }
 
 variable "irsa_additional_policies" {
   type        = map(string)
@@ -109,8 +109,8 @@ variable "irsa_additional_policies" {
 
 variable "irsa_role_name_prefix" {
   type        = string
-  default     = "<$addon-name>-irsa"
-  description = "The IRSA role name prefix for <$addon-name>"
+  default     = "chartmuseum-irsa"
+  description = "The IRSA role name prefix for chartmuseum"
 }
 
 variable "irsa_tags" {
@@ -121,8 +121,8 @@ variable "irsa_tags" {
 
 variable "service_account_name" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The k8s <$addon-name> service account name"
+  default     = "chartmuseum"
+  description = "The k8s chartmuseum service account name"
 }
 
 # ================ argo variables (required) ================
