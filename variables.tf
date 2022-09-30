@@ -24,7 +24,7 @@ variable "helm_chart_name" {
 
 variable "helm_chart_version" {
   type        = string
-  default     = "<helm_chart_version>"
+  default     = "3.9.1"
   description = "Version of the Helm chart"
 }
 
@@ -35,7 +35,7 @@ variable "helm_release_name" {
 }
 variable "helm_repo_url" {
   type        = string
-  default     = "<helm_repo_url>"
+  default     = "https://chartmuseum.github.io/charts"
   description = "Helm repository"
 }
 
@@ -82,24 +82,6 @@ variable "irsa_role_create" {
   default     = true
   description = "Whether to create IRSA role and annotate service account"
 }
-
-# variable "irsa_policy_enabled" {
-#   type        = bool
-#   default     = true
-#   description = "Whether to create opinionated policy to allow operations on specified zones in `policy_allowed_zone_ids`."
-# }
-
-variable "irsa_assume_role_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether IRSA is allowed to assume role defined by irsa_assume_role_arn."
-}
-
-# variable "irsa_assume_role_arn" {
-#   type        = string
-#   default     = ""
-#   description = "Assume role arn. Assume role must be enabled."
-# }
 
 variable "irsa_additional_policies" {
   type        = map(string)
