@@ -19,6 +19,6 @@ moved {
 }
 
 moved {
-  from = aws_iam_role_policy_attachment.this_additional["s3"]
-  to   = module.addon-irsa["chartmuseum"].aws_iam_role_policy_attachment.this_additional["s3"]
+  from = aws_iam_role_policy_attachment.this_additional
+  to   = module.addon-irsa["chartmuseum"].aws_iam_role_policy_attachment.this_additional
 }
