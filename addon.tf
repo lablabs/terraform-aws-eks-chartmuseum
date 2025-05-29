@@ -11,7 +11,7 @@ locals {
 }
 
 module "addon" {
-  source = "git::https://github.com/lablabs/terraform-aws-eks-universal-addon.git//modules/addon?ref=v0.0.17"
+  source = "git::https://github.com/lablabs/terraform-aws-eks-universal-addon.git//modules/addon?ref=v0.0.18"
 
   enabled = var.enabled
 
@@ -84,6 +84,10 @@ module "addon" {
 
   settings = var.settings != null ? var.settings : try(local.addon.settings, null)
   values   = one(data.utils_deep_merge_yaml.values[*].output)
+
+  depends_on = [
+    local.addon_depends_on
+  ]
 }
 
 data "utils_deep_merge_yaml" "values" {
