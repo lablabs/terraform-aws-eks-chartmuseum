@@ -27,13 +27,13 @@ variable "service_account_create" {
 variable "service_account_name" {
   type        = string
   default     = null
-  description = "The Kubernetes Service Account name. Defaults to the addon name. Defaults to `\"\"`."
+  description = "The Kubernetes Service Account name. Defaults to `\"\"`."
 }
 
 variable "service_account_namespace" {
   type        = string
   default     = null
-  description = "The Kubernetes Service Account namespace. Defaults to the addon namespace. Defaults to `\"\"`."
+  description = "The Kubernetes Service Account namespace. Defaults to `\"\"`."
 }
 
 variable "irsa_role_create" {
@@ -57,7 +57,7 @@ variable "irsa_role_name" {
 variable "irsa_policy_enabled" {
   type        = bool
   default     = null
-  description = "Whether to create IAM policy specified by `irsa_policy`. Mutually exclusive with `irsa_assume_role_enabled`. Defaults to `false`."
+  description = "Whether to create IAM policy specified by `irsa_policy`. Defaults to `false`."
 }
 
 variable "irsa_policy" {
@@ -69,7 +69,7 @@ variable "irsa_policy" {
 variable "irsa_assume_role_enabled" {
   type        = bool
   default     = null
-  description = "Whether IRSA is allowed to assume role defined by `irsa_assume_role_arn`. Mutually exclusive with `irsa_policy_enabled`. Defaults to `false`."
+  description = "Whether IRSA is allowed to assume role defined by `irsa_assume_role_arn`. Defaults to `false`."
 }
 
 variable "irsa_assume_role_arns" {
